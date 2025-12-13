@@ -4,8 +4,19 @@
   "workspaces": [
     "packages/*"
   ],
-  "dependencies": {},
+  "scripts": {
+    "lint": "lerna run lint",
+    "build": "lerna run build",
+    "dev": "lerna run dev",
+    "test": "lerna run test",
+    "test:coverage": "lerna run test:coverage",
+    "lint-fix": "lerna run lint-fix",
+    "prepare": "husky",
+    "start": "lerna run start",
+    "clean": "lerna clean --yes"
+  },
   "devDependencies": {
+    "husky": "^9.1.7",
     "lerna": "^9.0.1"
   }
 }

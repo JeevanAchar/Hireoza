@@ -1,0 +1,15 @@
+#!/bin/sh
+
+echo "🔍 Running ESLint..."
+CI=true npm run lint || {
+  echo "❌ ESLint failed. Commit aborted."
+  exit 1
+}
+
+echo "🏗️ Running build..."
+CI=true npm run build || {
+  echo "❌ Build failed. Commit aborted."
+  exit 1
+}
+
+echo "✅ Pre-commit checks passed!"
