@@ -1,4 +1,9 @@
 import Fastify from "fastify";
+import { config } from "./config";
+import { connectMongoDB } from "./mongoConnect";
+
+// Mongo connection
+connectMongoDB();
 
 const fastify = Fastify({
   logger: true,
@@ -11,7 +16,7 @@ fastify.get("/", function (request, reply) {
 });
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-fastify.listen({ port: 5000 }, function (err, address) {
+fastify.listen({ port: Number(config.port) }, function (err, address) {
   if (err) {
     fastify.log.error(err);
     process.exit(1);
